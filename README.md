@@ -1,6 +1,6 @@
-# emacs-like-utils
+# emacslike-extension
 
-Helpers for those who are into Emacs.
+Utilities for those who are into Emacs.
 
 ## Features
 
