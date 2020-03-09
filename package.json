@@ -1,0 +1,118 @@
+{
+  "name": "emacslike",
+  "displayName": "emacslike",
+  "description": "Utilities for Emacs people",
+  "publisher": "akheron",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:emacslike.ag.show",
+    "onCommand:emacslike.findfile.show"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "emacslike.ag.show",
+        "title": "Ag search..."
+      },
+      {
+        "command": "emacslike.findfile.show",
+        "title": "Find file..."
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "emacslike.ag.open",
+        "key": "enter",
+        "when": "emacslike.ag.active"
+      },
+      {
+        "command": "emacslike.ag.peek",
+        "key": "tab",
+        "when": "emacslike.ag.active"
+      },
+      {
+        "command": "emacslike.ag.refresh",
+        "key": "ctrl+g",
+        "when": "emacslike.ag.active"
+      },
+      {
+        "command": "emacslike.ag.stopSearch",
+        "key": "ctrl+c",
+        "when": "emacslike.ag.active"
+      },
+      {
+        "command": "emacslike.findfile.select",
+        "key": "tab",
+        "when": "emacslike.findfile.active"
+      },
+      {
+        "command": "emacslike.findfile.goToParent",
+        "key": "backspace",
+        "when": "emacslike.findfile.active && emacslike.findfile.empty"
+      },
+      {
+        "command": "emacslike.findfile.openPartial",
+        "key": "ctrl+o",
+        "when": "emacslike.findfile.active"
+      },
+      {
+        "command": "emacslike.findfile.createDirectoryPartial",
+        "key": "ctrl+d",
+        "when": "emacslike.findfile.active"
+      },
+      {
+        "command": "emacslike.findfile.rename",
+        "key": "ctrl+r",
+        "when": "emacslike.findfile.active"
+      },
+      {
+        "command": "emacslike.findfile.remove",
+        "key": "ctrl+delete",
+        "when": "emacslike.findfile.active"
+      }
+    ],
+    "languages": [
+      {
+        "id": "ag-output"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ag-output",
+        "scopeName": "source.ag-output",
+        "path": "./grammars/ag-output.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "rm -rf out/ && yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile",
+    "test": "node ./out/test/runTest.js",
+    "lint": "eslint '**/*.ts'"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/shell-quote": "^1.6.1",
+    "@types/vscode": "^1.41.0",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",
+    "glob": "^7.1.5",
+    "mocha": "^6.2.2",
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4",
+    "vscode-test": "^1.2.2"
+  }
+}
