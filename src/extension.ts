@@ -51,6 +51,9 @@ function activateFindfile(context: ExtensionContext) {
         findfile.createDirectoryPartial(state)
       }
     ),
+    commands.registerCommand('emacslike.findfile.addFolderToWorkspace', () => {
+      findfile.addFolderToWorkspace(state)
+    }),
     commands.registerCommand('emacslike.findfile.rename', () => {
       findfile.rename(state)
     }),

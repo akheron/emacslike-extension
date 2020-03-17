@@ -68,6 +68,11 @@
         "when": "emacslike.findfile.active"
       },
       {
+        "command": "emacslike.findfile.addFolderToWorkspace",
+        "key": "ctrl+w",
+        "when": "emacslike.findfile.active"
+      },
+      {
         "command": "emacslike.findfile.rename",
         "key": "ctrl+r",
         "when": "emacslike.findfile.active"

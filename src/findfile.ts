@@ -1,4 +1,4 @@
-import { window, QuickPickItem, workspace, QuickPick } from 'vscode'
+import { window, QuickPickItem, workspace, QuickPick, Uri } from 'vscode'
 
 import * as fsC from 'fs'
 const fs = fsC.promises
@@ -69,6 +69,19 @@ export function goToParent(picker: FindFileState) {
   const currentDir = currentDirectory(picker)
   if (currentDir === '/') return
   changeToDirectory(picker, path.dirname(currentDir))
+}
+
+export function addFolderToWorkspace(picker: FindFileState) {
+  const item = currentItem(picker)
+  if (!item || item.type !== 'directory') return
+
+  workspace.updateWorkspaceFolders(
+    workspace.workspaceFolders ? workspace.workspaceFolders.length : 0,
+    null,
+    { uri: Uri.file(item.fullPath) }
+  )
+
+  picker.hide()
 }
 
 export function rename(picker: FindFileState) {
