@@ -229,6 +229,13 @@ function pathFromCurrentValue(picker: FindFileState): string | undefined {
 function getInitialDirectory(): string {
   const currentDir = activeFileDirectory()
   if (currentDir !== undefined) return currentDir
+  if (workspace.workspaceFolders) {
+    const path = workspace.workspaceFolders
+      .map(({ uri }) => uri)
+      .filter(uri => uri.scheme === 'file')
+      .map(uri => uri.fsPath)[0]
+    if (path) return path
+  }
   return process.env.HOME || '/'
 }
 
