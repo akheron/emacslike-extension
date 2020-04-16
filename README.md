@@ -21,6 +21,14 @@ None
 
 ## Release Notes
 
+### 0.2.0
+
+**New features**
+
+- `findfile` Add a command to add a folder to the workspace
+- `findfile`: Use the first workspace folder as fallback initial
+  directory
+
 ### 0.1.0
 
 Initial release of emacs-like-utils
