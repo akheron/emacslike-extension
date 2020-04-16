@@ -3,6 +3,9 @@
   "displayName": "emacslike",
   "description": "Utilities for Emacs people",
   "publisher": "akheron",
+  "repository": {
+    "url": "https://github.com/akheron/emacslike-extension"
+  },
   "version": "0.2.0",
   "engines": {
     "vscode": "^1.44.0"
